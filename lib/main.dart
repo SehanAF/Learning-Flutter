@@ -7,45 +7,46 @@ void main() {
   runApp(const MyApp());
 }
 
-// List View
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    // Memindahkan deklarasi myList ke dalam build method MyApp.
-    // Harus 1 Scope
-    List<Widget> myList = [
-      Container(
-        height: 300,
-        width: 300,
-        color: Colors.red,
-      ),
-      Container(
-        height: 300,
-        width: 300,
-        color: Colors.green,
-      ),
-      Container(
-        height: 300,
-        width: 300,
-        color: Colors.blue,
-      ),
-      Container(
-        height: 300,
-        width: 300,
-        color: Colors.amber,
-      ),
-    ];
+// belajar menggunakan icon
 
+  @override
+ // Override metode build untuk membuat UI
+  Widget build(BuildContext context) {
+    // Membuat aplikasi MaterialApp
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // Menyembunyikan banner mode debug
       home: Scaffold(
+        backgroundColor: Colors.deepPurple[200], // Mengatur warna latar belakang Scaffold
         appBar: AppBar(
-          title: Text("List View"),
+          title: Text("My First App", style: TextStyle(color: Colors.white)), // Menambahkan judul AppBar dengan warna teks putih
+          backgroundColor: Colors.deepPurple, // Mengatur warna latar belakang AppBar
+          elevation: 0, // Menghilangkan bayangan di bawah AppBar
+          leading: Icon(Icons.menu, color: Colors.white), // Menambahkan ikon menu di sisi kiri AppBar dengan warna putih
+          actions: [
+            IconButton(
+              onPressed: () {}, // Fungsi yang dipanggil ketika tombol ditekan (saat ini tidak melakukan apa-apa)
+              icon: Icon(Icons.logout, color: Colors.white) // Menambahkan ikon logout di sisi kanan AppBar dengan warna putih
+            ),
+          ],
         ),
-        body: ListView( // agar bisa di scroll
-          // scrollDirection: Axis.horizontal, // mengubah posisi scroll
-          children: myList,
+        body: Center(
+          child: Container(
+            height: 300, // Tinggi kontainer
+            width: 300, // Lebar kontainer
+            decoration: BoxDecoration(
+              color: Colors.deepPurple, // Warna latar belakang kontainer
+              borderRadius: BorderRadius.circular(20), // Membuat sudut kontainer melengkung
+            ),
+            padding: EdgeInsets.all(25), // Memberikan padding di dalam kontainer
+            child: Icon(
+              Icons.android, // Menambahkan ikon Android di dalam kontainer
+              size: 100, // Ukuran ikon
+              color: Colors.white, // Warna ikon
+            ),
+          ),
         ),
       ),
     );
