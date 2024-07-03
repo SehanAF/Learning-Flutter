@@ -1,57 +1,79 @@
 
-// Import the Flutter material library for UI elements.
 import 'package:flutter/material.dart';
 
-// Entry point dari aplikasi Flutter.
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-// belajar menggunakan icon
-
   @override
- // Override metode build untuk membuat UI
   Widget build(BuildContext context) {
-    // Membuat aplikasi MaterialApp
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Menyembunyikan banner mode debug
       home: Scaffold(
-        backgroundColor: Colors.deepPurple[200], // Mengatur warna latar belakang Scaffold
-        appBar: AppBar(
-          title: Text("My First App", style: TextStyle(color: Colors.white)), // Menambahkan judul AppBar dengan warna teks putih
-          backgroundColor: Colors.deepPurple, // Mengatur warna latar belakang AppBar
-          elevation: 0, // Menghilangkan bayangan di bawah AppBar
-          leading: Icon(Icons.menu, color: Colors.white), // Menambahkan ikon menu di sisi kiri AppBar dengan warna putih
-          actions: [
-            IconButton(
-              onPressed: () {}, // Fungsi yang dipanggil ketika tombol ditekan (saat ini tidak melakukan apa-apa)
-              icon: Icon(Icons.logout, color: Colors.white) // Menambahkan ikon logout di sisi kanan AppBar dengan warna putih
-            ),
-          ],
-        ),
-        body: Center(
-          child: Container(
-            height: 300, // Tinggi kontainer
-            width: 300, // Lebar kontainer
-            decoration: BoxDecoration(
-              color: Colors.deepPurple, // Warna latar belakang kontainer
-              borderRadius: BorderRadius.circular(20), // Membuat sudut kontainer melengkung
-            ),
-            padding: EdgeInsets.all(25), // Memberikan padding di dalam kontainer
-            child: Icon(
-              Icons.android, // Menambahkan ikon Android di dalam kontainer
-              size: 100, // Ukuran ikon
-              color: Colors.white, // Warna ikon
-            ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: 300,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.orange, Colors.orangeAccent],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(140.90),
+                    bottomRight: Radius.circular(140.90),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Dokumentasikan\nproses anak bersama\nKeluarga",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Image.asset(
+                      'images/logo1.png', // Sesuaikan dengan path gambar Anda
+                      height: 150,
+                      width: 100,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  "Lorem ipsum hexajor nesm, nativ, att labavis bes. "
+                  "Kroskapet diav, sedan fos. Du kan vara drabbad. "
+                  "Essa paseledes i kuvn i krongar.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              SizedBox(height: 20),
+              FloatingActionButton(
+                onPressed: () {
+                  // Tambahkan aksi yang diinginkan
+                },
+                child: Icon(Icons.arrow_forward),
+              ),
+              SizedBox(height: 20),
+            ],
           ),
         ),
       ),
     );
   }
 }
+
 
 // latihan menggunakan Container, column and stack
 
