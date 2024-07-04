@@ -1,78 +1,34 @@
 
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/first_page.dart';
+import 'package:myapp/pages/home_page.dart';
+import 'package:myapp/pages/settings_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+// Section Widget Gesture and Detection
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: 300,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.orange, Colors.orangeAccent],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(140.90),
-                    bottomRight: Radius.circular(140.90),
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Dokumentasikan\nproses anak bersama\nKeluarga",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Image.asset(
-                      'images/logo1.png', // Sesuaikan dengan path gambar Anda
-                      height: 150,
-                      width: 100,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "Lorem ipsum hexajor nesm, nativ, att labavis bes. "
-                  "Kroskapet diav, sedan fos. Du kan vara drabbad. "
-                  "Essa paseledes i kuvn i krongar.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              SizedBox(height: 20),
-              FloatingActionButton(
-                onPressed: () {
-                  // Tambahkan aksi yang diinginkan
-                },
-                child: Icon(Icons.arrow_forward),
-              ),
-              SizedBox(height: 20),
-            ],
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+      routes: {
+        '/firstpage': (context) => FirstPage(),
+        '/homepage': (context) => HomePage(),
+        '/settingspage': (context) => SettingsPage(),
+        
+      },
     );
   }
 }
+
 
 
 // latihan menggunakan Container, column and stack
