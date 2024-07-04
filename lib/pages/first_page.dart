@@ -2,7 +2,7 @@
 
 import "package:flutter/material.dart";
 
-// How use Routes
+// Section Drawer Widget
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
@@ -29,7 +29,7 @@ class FirstPage extends StatelessWidget {
               leading: Icon(Icons.home),
               title: Text("Home"),
               onTap: () {
-                Navigator.pushNamed(context, '/HomePage');
+                Navigator.pushNamed(context, '/homepage');
               },
             ),
 
@@ -38,7 +38,7 @@ class FirstPage extends StatelessWidget {
               leading: Icon(Icons.settings),
               title: Text("Setting"),
               onTap: () {
-                Navigator.pushNamed(context, '/SettingsPage');
+                Navigator.pushNamed(context, '/settingspage');
               },
             ),
           ],
