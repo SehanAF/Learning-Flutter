@@ -2,22 +2,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_import
 
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:myapp/pages/pages_recipebook/login_page.dart';
 
-
-import 'package:myapp/pages/pages_ecommerce/intro_page.dart';
-
-
-Future<void> main() async {
-
-  // init the hive
-  await Hive.initFlutter();
-
-  // open a box
-  var box = await Hive.openBox("mybox");
-  
-  runApp(MyApp());
+void main(){
+  runApp(const MyApp());
 }
 
 // Section Navigation - Bottom Navbar
@@ -26,10 +14,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: "Recipe Book",
       debugShowCheckedModeBanner: false,
-      home: IntroPage(),
-      
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold
+          )
+        )
+      ),
+      home: LoginPage(),
     );
   }
 }
