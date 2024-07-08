@@ -4,7 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp/ToDo/home_page.dart';
+
+
+import 'package:myapp/pages/pages_ecommerce/intro_page.dart';
 
 
 Future<void> main() async {
@@ -24,10 +26,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      theme: ThemeData(primarySwatch: Colors.yellow),
+      home: IntroPage(),
       
     );
   }
