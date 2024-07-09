@@ -1,117 +1,45 @@
 
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_import
-
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/pages_recipebook/home_page.dart';
-import 'package:myapp/pages/pages_recipebook/login_page.dart';
 
 void main(){
   runApp(const MyApp());
 }
 
-// Section Navigation - Bottom Navbar
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Recipe Book",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.light,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("My App"),
         ),
-        useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-          )
-        )
+        body: Stack(
+          children: [
+            Container(
+              color: Colors.red,
+              width: 400,
+              height: 400,
+            ),
+            Container(
+              color: Colors.blue,
+              width: 300,
+              height: 300,
+            ),
+            Container(
+              color: Colors.green,
+              width: 200,
+              height: 200,
+            ),
+          ]
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+        ),
       ),
-      initialRoute: "/login",
-      routes: {
-        "/login": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
-      },
     );
   }
 }
-
-
-
-// latihan menggunakan Container, column and stack
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text("Column"),
-//         ),
-//         body: Stack(
-//           //mainAxisAlignment: MainAxisAlignment.center,
-//           //crossAxisAlignment: CrossAxisAlignment.end,
-//           children: [
-//             Container(
-//               height: 400,
-//               width: 400,
-//               color: Colors.green,
-//             ),
-//              Container(
-//               height: 300,
-//               width: 300,
-//               color: Colors.blue,
-//             ),
-//              Container(
-//               height: 200,
-//               width: 200,
-//               color: Colors.red,
-//             ),
-//              Container(
-//               height: 100,
-//               width: 100,
-//               color: Colors.orange,
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// Very Basic
-
-// Use 'stl' shortcut for StatelessWidget
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text("My First App"),
-//         ),
-//         body: const Center(
-//           child: Text(
-//             "Hello World",
-//             style: TextStyle(
-//               fontSize: 20,
-//               fontWeight: FontWeight.bold,
-//               color: Colors.blue,
-//               fontFamily: "Arial",
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
