@@ -1,12 +1,27 @@
+// ignore_for_file: must_be_immutable, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(const MyApp());
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  List<Color> myColor = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.purple,
+    Colors.orange,
+  ];
+
+  final List<Widget> myList = List.generate(
+    10,
+    (index) => Text("Hello World"),
+  );
+
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,30 +29,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("My App"),
+          backgroundColor: Color.fromARGB(255, 56, 1, 75),
+          title: const Text(
+            "Hello World",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          centerTitle: true,
         ),
-        body: Stack(
-          children: [
-            Container(
-              color: Colors.red,
-              width: 400,
-              height: 400,
-            ),
-            Container(
-              color: Colors.blue,
-              width: 300,
-              height: 300,
-            ),
-            Container(
-              color: Colors.green,
-              width: 200,
-              height: 200,
-            ),
-          ]
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
+        body: ListView(
+          children: myList,
         ),
       ),
     );
