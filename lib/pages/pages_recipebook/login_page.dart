@@ -2,6 +2,7 @@
 
 import "package:flutter/material.dart";
 import "package:myapp/services/recipebook/auth_service.dart";
+import "package:status_alert/status_alert.dart";
 
 // Definisi class LoginPage yang merupakan StatefulWidget
 class LoginPage extends StatefulWidget {
@@ -151,7 +152,20 @@ class _LoginPageState extends State<LoginPage> {
               username!,
               password!,
             );
-            print(result);
+            if (result) {
+              Navigator.pushReplacementNamed(context, "/home");
+            } else {
+              StatusAlert.show(
+                context,
+                duration: const Duration(seconds: 2),
+                title: 'Login Failed',
+                subtitle: "Please try again",
+                configuration: const IconConfiguration(
+                  icon: Icons.error,
+                ),
+                maxWidth: 260,
+              );
+            }
           }
         },
         child: Text("Login"), // Teks pada tombol login

@@ -41,6 +41,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_slidable: ^3.0.0
   dio: ^5.5.0+1
+  status_alert: ^1.0.1
 
 dev_dependencies:
   flutter_test:

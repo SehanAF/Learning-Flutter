@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_import
 
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/pages_recipebook/home_page.dart';
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
 
 void main(){
@@ -12,7 +13,7 @@ void main(){
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Recipe Book",
@@ -30,7 +31,11 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: LoginPage(),
+      initialRoute: "/login",
+      routes: {
+        "/login": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+      },
     );
   }
 }

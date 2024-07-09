@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:myapp/data/consts.dart';
+import 'package:myapp/consts.dart';
 
 class HTTPService {
   static final HTTPService _singleton = HTTPService._internal();
@@ -19,6 +19,9 @@ class HTTPService {
       'Content-Type': 'application/json',
       if (bearerToken != null) 'Authorization': 'Bearer $bearerToken',
     };
+    if (bearerToken != null) {
+      headers["Authorizaation"] = "Bearer $bearerToken";
+    }
 
     final options = BaseOptions(
       baseUrl: API_BASE_URL,
