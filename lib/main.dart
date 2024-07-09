@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,19 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  List<Color> myColor = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-  ];
-
-  final List<Widget> myList = List.generate(
-    10,
-    (index) => Text("Hello World"),
-  );
+  var faker = new Faker();
 
   MyApp({super.key});
 
@@ -38,22 +27,42 @@ class MyApp extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: Center(
-          child: Container(
-            width: 350,
-            height: 500,
-            color: Colors.amber,
-            child: Image.asset(
-              "images/sepatu4.png",
-              fit: BoxFit.cover,
-            ),
-            // child: Image(
-            //   fit: BoxFit.cover,
-            //   image: AssetImage("images/sepatu4.png"),
-            // ),
-          )
+        body: ListView.builder(
+          itemCount: 100,
+          itemBuilder: (context, index){
+            return ChatItem(
+              imageUrl: "https://picsum.photos/id/$index/200/300",
+              title: faker.person.name(),
+              subtitle: faker.lorem.sentence(),
+            );
+          },
         ),
       ),
+    );
+  }
+}
+
+class ChatItem extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+
+  const ChatItem({
+    super.key,
+    required this.imageUrl,
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(imageUrl),
+      ),
+      title: Text(title),
+      subtitle: Text(subtitle),
+      trailing: Icon(Icons.more_vert),
     );
   }
 }
