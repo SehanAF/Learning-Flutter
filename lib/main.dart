@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, prefer_const_constructors
+// ignore_for_file: must_be_immutable, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -33,13 +33,48 @@ class MyApp extends StatelessWidget {
           title: const Text(
             "Hello World",
             style: TextStyle(
-              color: Colors.white,
+              color: Color.fromARGB(255, 253, 253, 253),
             ),
           ),
           centerTitle: true,
         ),
         body: ListView(
-          children: myList,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.all(5),
+              title: Text("Sehan Alfarisi"),
+              subtitle: Text("This is subtitle okay"),
+              leading: Icon(Icons.person),
+              trailing: Icon(Icons.phone),
+            ),
+            Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: Text("Sehan Alfarisi"),
+              subtitle: Text("This is subtitle okay"),
+              leading: Icon(Icons.person),
+              trailing: Icon(Icons.phone),
+            ),
+            Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: Text("Sehan Alfarisi"),
+              subtitle: Text("This is subtitle okay"),
+              leading: Icon(Icons.person),
+              trailing: Icon(Icons.phone),
+            ),
+            Divider(
+              color: Colors.grey,
+            ),
+            ListTile(
+              title: Text("Sehan Alfarisi"),
+              subtitle: Text("This is subtitle okay"),
+              leading: Icon(Icons.person),
+              trailing: Icon(Icons.phone),
+            ),
+          ]
         ),
       ),
     );
