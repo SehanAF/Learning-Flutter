@@ -38,43 +38,20 @@ class MyApp extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: ListView(
-          children: [
-            ListTile(
-              contentPadding: EdgeInsets.all(5),
-              title: Text("Sehan Alfarisi"),
-              subtitle: Text("This is subtitle okay"),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.phone),
+        body: Center(
+          child: Container(
+            width: 350,
+            height: 500,
+            color: Colors.amber,
+            child: Image.asset(
+              "images/sepatu4.png",
+              fit: BoxFit.cover,
             ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              title: Text("Sehan Alfarisi"),
-              subtitle: Text("This is subtitle okay"),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.phone),
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              title: Text("Sehan Alfarisi"),
-              subtitle: Text("This is subtitle okay"),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.phone),
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              title: Text("Sehan Alfarisi"),
-              subtitle: Text("This is subtitle okay"),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.phone),
-            ),
-          ]
+            // child: Image(
+            //   fit: BoxFit.cover,
+            //   image: AssetImage("images/sepatu4.png"),
+            // ),
+          )
         ),
       ),
     );
