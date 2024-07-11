@@ -1,11 +1,9 @@
-// ignore_for_file: must_be_immutable, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/tutorial/1mapping_list.dart';
-import 'package:myapp/pages/tutorial/2date_format.dart';
+import 'package:myapp/pages/pages_recipebook/home_page.dart';
+import 'package:myapp/pages/pages_recipebook/login_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,8 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DateFormats(),
+      title: "Recipe Book",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: "/login",
+      routes: {
+        "/login": (context) => const LoginPage(),
+        "/home": (context) => const HomePage(),
+      },
     );
   }
 }

@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             // Field untuk username
             TextFormField(
-              initialValue: "sehun", // Nilai awal untuk username
+              initialValue: "emilys", // Nilai awal untuk username
               onSaved: (value) {
                 setState(() {
                   username = value; // Menyimpan nilai username
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             // Field untuk password
             TextFormField(
-              initialValue: "helloo", // Nilai awal untuk password
+              initialValue: "emilyspass", // Nilai awal untuk password
               obscureText: true, // Menyembunyikan teks untuk keamanan
               onSaved: (value) {
                 setState(() {

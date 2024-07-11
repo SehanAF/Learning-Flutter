@@ -1,3 +1,4 @@
+import 'package:myapp/consts.dart';
 import 'package:myapp/models/recipebook/user.dart';
 import 'package:myapp/services/recipebook/http_service.dart';
 
@@ -16,7 +17,7 @@ class AuthService {
 
   Future<bool> login(String username, String password) async {
     try {
-      var response = await _httpService.post('auth/login', {
+      var response = await _httpService.post('${API_BASE_URL}auth/login', {
         'username': username,
         'password': password,
       });
@@ -26,7 +27,7 @@ class AuthService {
         HTTPService().setup(bearerToken: user!.token);
         return true;
       } else {
-        print("Login failed with status: ${response?.statusCode}");
+        print("Login failed with status: ${response?.data}");
       }
     } catch (e) {
       print("Error during login: $e");
