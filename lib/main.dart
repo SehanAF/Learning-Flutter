@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/pages_tutorial/todo_page.dart';
-import 'package:myapp/pages/pages_tutorial/counter_page.dart';
-import 'package:myapp/pages/first_page.dart';
-import 'package:myapp/pages/pages_recipebook/home_page.dart';
-import 'package:myapp/pages/pages_recipebook/login_page.dart';
+import 'package:myapp/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ToDoPage(),
+      theme: ThemeData(fontFamily: "Poppins"),
+      home: HomePageBreakfast(),
     );
   }
 }
