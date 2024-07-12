@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import "package:flutter/material.dart";
-import "package:myapp/components/bottom_navbar_ecommerce.dart";
+import "package:myapp/components/ecommerce/bottom_navbar_ecommerce.dart";
 import "package:myapp/pages/pages_ecommerce/cart_page.dart";
 import "package:myapp/pages/pages_ecommerce/shop_page.dart";
 

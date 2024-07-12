@@ -1,4 +1,4 @@
-import 'package:myapp/consts.dart';
+import 'package:myapp/services/recipebook/consts.dart';
 import 'package:myapp/models/recipebook/user.dart';
 import 'package:myapp/services/recipebook/http_service.dart';
 

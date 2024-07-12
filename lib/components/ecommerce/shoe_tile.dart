@@ -1,7 +1,7 @@
 
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import "package:myapp/models/shoe.dart";
+import "package:myapp/models/ecommerce/shoe.dart";
 
 class ShoeTile extends StatelessWidget {
   Shoe shoe;

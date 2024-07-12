@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/pages_tutorial/todo_page.dart';
+import 'package:myapp/pages/pages_tutorial/counter_page.dart';
+import 'package:myapp/pages/first_page.dart';
 import 'package:myapp/pages/pages_recipebook/home_page.dart';
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
 
@@ -13,15 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Recipe Book",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: "/login",
-      routes: {
-        "/login": (context) => const LoginPage(),
-        "/home": (context) => const HomePage(),
-      },
+      home: ToDoPage(),
     );
   }
 }

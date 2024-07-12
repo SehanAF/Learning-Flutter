@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:myapp/consts.dart';
+import 'package:myapp/services/recipebook/consts.dart';
 
 class HTTPService {
   static final HTTPService _singleton = HTTPService._internal();
