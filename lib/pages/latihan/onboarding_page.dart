@@ -15,7 +15,7 @@ class OnboardingPage extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 320,
+                  height: 330,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -27,8 +27,8 @@ class OnboardingPage extends StatelessWidget {
                       end: Alignment.bottomCenter,
                     ),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(150.0),
-                      bottomRight: Radius.circular(150.0),
+                      bottomLeft: Radius.circular(140.0),
+                      bottomRight: Radius.circular(140.0),
                     ),
                   ),
                 ),
@@ -39,7 +39,7 @@ class OnboardingPage extends StatelessWidget {
                     "Dokumentasikan\nproses anak bersama\nKeluarga",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

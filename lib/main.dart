@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/latihan/onboarding_page.dart';
+import 'package:myapp/pages/latihan/login_page.dart';
+import 'package:myapp/pages/latihan/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home: OnboardingPage(),
+      home: LoginPage(),
     );
   }
 }
