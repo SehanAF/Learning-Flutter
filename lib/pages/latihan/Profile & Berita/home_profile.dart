@@ -8,7 +8,7 @@ class HomeProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar
+      appBar: AppBar (
         title: Text(
           'Profile',
           style: TextStyle(
@@ -19,7 +19,187 @@ class HomeProfile extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(child: Text('Isi Halaman Utama')),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 33,
+                    backgroundImage: AssetImage('images/google.png'),
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Majmudin Suhadin',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: Colors.orange[50],
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(Icons.emoji_events, color: Colors.orange),
+                                SizedBox(width: 5),
+                                Text('1,000 Point', style: TextStyle(color: Colors.orange)),
+                                SizedBox(width: 5),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 2),
+                          TextButton(
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Lihat ranking",
+                                  style: TextStyle(color: Colors.orange),
+                                ),
+                                SizedBox(width: 3),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.orange,
+                                  size: 13,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 15),
+              Text(
+                'Lórem ipsum hexajor nesm, nativ, att labavis bes.\nKroskapet diav, sedan fos. Du kan',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey
+                ),
+              ),
+              SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama Istri"),
+                      SizedBox(height: 5,),
+                      Container(
+                        width: 160,
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: Colors.orange,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Liliana',
+                              style: TextStyle(
+                                fontSize: 14,        
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 30),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama Anak"),
+                      SizedBox(height: 5,),
+                      Container(          
+                        width: 160,
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: Colors.orange,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Liliana',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ), 
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  
+                ],               
+              ),
+              SizedBox(height: 20),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Tahun Ajaran Anak"),
+                  SizedBox(height: 5,),
+                  Container(          
+                    width: 400,
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color: Colors.orange,
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          '2023 - 2026',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ), 
+                      ],
+                    ),
+                  ),
+                ],
+              ),            
+            ],
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavBar(),
     );
   }
