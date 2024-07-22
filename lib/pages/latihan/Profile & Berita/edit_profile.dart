@@ -147,7 +147,6 @@ class EditProfile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      
                     ]
                   ),
                   SizedBox(width: 50,),
@@ -156,6 +155,168 @@ class EditProfile extends StatelessWidget {
                     backgroundImage: AssetImage('images/google.png'),
                   ),
                 ],
+              ),
+              SizedBox(height: 20),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Nama Lengkap"),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: 400,
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Majmudin suhadin',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama Istri"),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        width: 160,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [                        
+                            SizedBox(width: 5),
+                            Text(
+                              'Liliana',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 30),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama Ayah"),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        width: 160,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [                           
+                            SizedBox(width: 5),
+                            Text(
+                              'Ahmad',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),                 
+                    ],
+                  ),                 
+                ],
+              ),
+              SizedBox(height: 20),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Tahun Ajaran Anak"),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: 400,
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [                      
+                        SizedBox(width: 5),
+                        Text(
+                          '2023 - 2026',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Text("Description"),
+              SizedBox(height: 5),
+              TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Lörem ipsum hexajor nesm, nativ, att labavis bes.\n Kroskapet diav, sedan fos. Du kan",
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),                 
+                ),
+              ),
+              SizedBox(height: 70),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 160, vertical: 15),
+                    backgroundColor: Colors.orange,
+                  ),
+                  child: Text(
+                    "Save",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                )
               ),
             ],
           ),
