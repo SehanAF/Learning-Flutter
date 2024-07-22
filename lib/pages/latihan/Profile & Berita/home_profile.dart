@@ -8,7 +8,7 @@ class HomeProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (
+      appBar: AppBar(
         title: Text(
           'Profile',
           style: TextStyle(
@@ -47,7 +47,8 @@ class HomeProfile extends StatelessWidget {
                       Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 2),
                             decoration: BoxDecoration(
                               color: Colors.orange[50],
                               borderRadius: BorderRadius.circular(20),
@@ -56,7 +57,8 @@ class HomeProfile extends StatelessWidget {
                               children: [
                                 Icon(Icons.emoji_events, color: Colors.orange),
                                 SizedBox(width: 5),
-                                Text('1,000 Point', style: TextStyle(color: Colors.orange)),
+                                Text('1,000 Point',
+                                    style: TextStyle(color: Colors.orange)),
                                 SizedBox(width: 5),
                               ],
                             ),
@@ -89,10 +91,7 @@ class HomeProfile extends StatelessWidget {
               Text(
                 'Lórem ipsum hexajor nesm, nativ, att labavis bes.\nKroskapet diav, sedan fos. Du kan',
                 textAlign: TextAlign.start,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey
-                ),
+                style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
               SizedBox(height: 15),
               Row(
@@ -103,42 +102,13 @@ class HomeProfile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Nama Istri"),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Container(
                         width: 160,
-                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.person,
-                              color: Colors.orange,
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              'Liliana',
-                              style: TextStyle(
-                                fontSize: 14,        
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: 30),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Nama Anak"),
-                      SizedBox(height: 5,),
-                      Container(          
-                        width: 160,
-                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(30),
@@ -155,14 +125,48 @@ class HomeProfile extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14,
                               ),
-                            ), 
+                            ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  
-                ],               
+                  SizedBox(width: 30),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nama Anak"),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Container(
+                        width: 160,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: Colors.orange,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Liliana',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               Column(
@@ -170,8 +174,10 @@ class HomeProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Tahun Ajaran Anak"),
-                  SizedBox(height: 5,),
-                  Container(          
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
                     width: 400,
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     decoration: BoxDecoration(
@@ -181,7 +187,7 @@ class HomeProfile extends StatelessWidget {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.person,
+                          Icons.calendar_month,
                           color: Colors.orange,
                         ),
                         SizedBox(width: 5),
@@ -190,17 +196,111 @@ class HomeProfile extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                           ),
-                        ), 
+                        ),
                       ],
                     ),
                   ),
                 ],
-              ),            
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Setting",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SettingOption(
+                    title: "Edit Profile",
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SettingOption(
+                    title: "FAQ",
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SettingOption(
+                    title: "Ubah Password",
+                    onTap: () {},
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SettingOption(
+                    title: "Log out",
+                    onTap: () {},
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomNavBar(),
+    );
+  }
+}
+
+class SettingOption extends StatelessWidget {
+  final String title;
+  final VoidCallback onTap;
+
+  SettingOption({required this.title, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 55,
+      width: 400,
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black
+            ),
+          ),
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.black,
+            child: ClipOval(
+              child: IconButton(
+                onPressed: onTap,
+                icon: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -211,7 +311,7 @@ class BottomNavBar extends StatelessWidget {
     return BottomAppBar(
       color: Colors.black,
       child: Container(
-        height: 60, 
+        height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -240,7 +340,7 @@ class NavItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon, color: color),
-        SizedBox(height: 4), 
+        SizedBox(height: 4),
         Text(label, style: TextStyle(color: color, fontSize: 12)),
       ],
     );
