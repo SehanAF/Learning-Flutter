@@ -93,7 +93,7 @@ class HomeBook extends StatelessWidget {
                     Container(
                       width: 50,
                       height: 50,
-                      padding: 
+                      padding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey, width: 1),
@@ -130,62 +130,198 @@ class HomeBook extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            Stack(
+            Row(
               children: [
-                Container(
-                  width: 170,
-                  height: 270,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.grey),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                        ),
-                        child: Image.asset(
-                          "images/book1.png",
-                          width: 170,
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 10,),
-                            Text(
-                              'Buku Cerita Anak Anak',
-                              style: TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              'Mudah Mudahan Jadi lebih baik',
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              'Stok: 2',
-                              style: TextStyle(fontSize: 12, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                BookCard(
+                  imageUrl: "images/book2.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Mudah Mudahan Jadi lebih baik",
+                  stock: "Stok: 2",
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                BookCard(
+                  imageUrl: "images/book1.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Menyelamatkan Planet Biru",
+                  stock: "Stok: 2",
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                BookCard(
+                  imageUrl: "images/book1.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Mudah Mudahan Jadi lebih baik",
+                  stock: "Stok: 2",
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                BookCard(
+                  imageUrl: "images/book2.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Menyelamatkan Planet Biru",
+                  stock: "Stok: 2",
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                BookCard(
+                  imageUrl: "images/book2.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Menyelamatkan Planet Biru",
+                  stock: "Stok: 2",
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                BookCard(
+                  imageUrl: "images/book1.png",
+                  title: "Buku Cerita Anak Anak",
+                  subtitle: "Mudah Mudahan Jadi lebih baik",
+                  stock: "Stok: 2",
+                ),
+              ],
+            ),
           ],
         ),
       ),
+      floatingActionButton: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,      
+        ),
+        child: FloatingActionButton(
+          onPressed: () {
+            print("button ditekan");
+          },
+          child: Icon(Icons.add, color: Colors.white,),
+          backgroundColor: Colors.orange,
+        ),
+      ),
+      bottomNavigationBar: BottomNavBar(),
+    );
+  }
+}
+
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2427909134.
+class BookCard extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+  final String stock;
+
+  BookCard({
+    required this.imageUrl,
+    required this.title,
+    required this.subtitle,
+    required this.stock,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: 170,
+          height: 270,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Colors.grey),
+            color: Colors.white,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                ),
+                child: Image.asset(
+                  imageUrl,
+                  width: 170,
+                  height: 150,
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10),
+                    Text(
+                      title,
+                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      subtitle,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      stock,
+                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BottomNavBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      color: Colors.black,
+      child: Container(
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            NavItem(icon: Icons.home, label: 'Home', color: Colors.white),
+            NavItem(icon: Icons.article, label: 'Berita', color: Colors.white),
+            NavItem(icon: Icons.book, label: 'Buku', color: Colors.orange),
+            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white),
+            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NavItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  NavItem({required this.icon, required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: color),
+        SizedBox(height: 4),
+        Text(label, style: TextStyle(color: color, fontSize: 12)),
+      ],
     );
   }
 }
@@ -199,18 +335,17 @@ class CategoryChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: Chip(
-        label: Text(label),
-        backgroundColor: isSelected ? Colors.orange : Colors.white,
-        labelStyle: TextStyle(
-          color: isSelected ? Colors.white : Colors.black,        
-        ),
-        side: BorderSide(color: Colors.grey),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-      )
-    );
+        padding: const EdgeInsets.only(right: 10),
+        child: Chip(
+          label: Text(label),
+          backgroundColor: isSelected ? Colors.orange : Colors.white,
+          labelStyle: TextStyle(
+            color: isSelected ? Colors.white : Colors.black,
+          ),
+          side: BorderSide(color: Colors.grey),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ));
   }
 }
