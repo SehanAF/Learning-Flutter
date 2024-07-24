@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/latihan/Pinjam%20Buku/confirm_book.dart';
 import 'package:myapp/pages/latihan/Pinjam%20Buku/detail_book.dart';
 import 'package:myapp/pages/latihan/Pinjam%20Buku/home_book.dart';
+import 'package:myapp/pages/latihan/Pinjam%20Buku/list_book.dart';
 import 'package:myapp/pages/latihan/Profile%20&%20Berita/edit_password.dart';
 import 'package:myapp/pages/latihan/Profile%20&%20Berita/edit_profile.dart';
 import 'package:myapp/pages/latihan/Profile%20&%20Berita/home_profile.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home: DetailBook(),
+      home: ListBook(),
     );
   }
 }
