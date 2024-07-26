@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class BeritaPage extends StatelessWidget {
-  const BeritaPage({super.key});
+class PengumumanPage extends StatelessWidget {
+  const PengumumanPage({super.key});
 
   @override
   Widget build(BuildContext context) {

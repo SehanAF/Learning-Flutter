@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/latihan/Forum%20Diskusi/edit_profile_diskusi.dart';
 import 'package:myapp/pages/latihan/Pinjam%20Buku/detail_book.dart';
+import 'package:myapp/pages/latihan/Profile%20&%20Berita/home_berita.dart';
 
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home: EditProfileDiskusi(),
+      home: HomeBerita(),
     );
   }
 }
