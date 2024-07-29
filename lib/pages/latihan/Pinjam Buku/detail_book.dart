@@ -25,7 +25,7 @@ class DetailBook extends StatelessWidget {
                 size: 15,             
               ),
               onPressed: () {
-                // Back button action
+                
               },
             ),
           ),

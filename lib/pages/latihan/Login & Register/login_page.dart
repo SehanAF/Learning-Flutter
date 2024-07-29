@@ -91,7 +91,9 @@ class LoginPage extends StatelessWidget {
                   SizedBox(height: 20),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/profile');                       
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),

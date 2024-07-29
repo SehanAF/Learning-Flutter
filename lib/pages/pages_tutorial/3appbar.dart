@@ -38,7 +38,16 @@ class appbar extends StatelessWidget {
             color: Colors.green,
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        backgroundColor: Colors.blue,
+        child: Icon(Icons.keyboard_arrow_left, color: Colors.white,),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       )
+      
     );
   }
 }

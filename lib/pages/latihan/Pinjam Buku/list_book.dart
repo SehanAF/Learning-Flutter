@@ -25,7 +25,7 @@ class ListBook extends StatelessWidget {
                 size: 15,             
               ),
               onPressed: () {
-                // Back button action
+                Navigator.of(context).pop();
               },
             ),
           ),

@@ -25,7 +25,7 @@ class EditPassword extends StatelessWidget {
                 size: 20,    
               ),
               onPressed: () {
-                // Back button action
+                Navigator.of(context).pop();
               },
             ),
           ),

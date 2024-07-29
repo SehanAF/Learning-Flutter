@@ -43,22 +43,31 @@ class HomeBook extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 120),
-                  child: Stack(alignment: Alignment.center, children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.grey, width: 1),
-                      ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/listbook');
+                    },
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.grey, width: 1),
+                          ),
+                        ),
+                        Icon(
+                          Icons.shopping_bag,
+                          size: 25,
+                          color: Colors.black,
+                        ),
+                      ],
                     ),
-                    Icon(
-                      Icons.shopping_bag,
-                      size: 25,
-                      color: Colors.black,
-                    ),
-                  ]),
+                  ),
                 ),
+
               ],
             ),
             SizedBox(
@@ -294,11 +303,21 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            NavItem(icon: Icons.home, label: 'Home', color: Colors.white),
-            NavItem(icon: Icons.article, label: 'Berita', color: Colors.white),
-            NavItem(icon: Icons.book, label: 'Buku', color: Colors.orange),
-            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white),
-            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white),
+            NavItem(icon: Icons.home, label: 'Home', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/home');
+            }),
+            NavItem(icon: Icons.article, label: 'Berita', color: Colors.orange, onTap: () {
+              Navigator.of(context).pushNamed('/berita');
+            }),
+            NavItem(icon: Icons.book, label: 'Buku', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/buku');
+            }),
+            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/forum');
+            }),
+            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/profile');
+            }),
           ],
         ),
       ),
@@ -310,18 +329,22 @@ class NavItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
+  final VoidCallback onTap;
 
-  NavItem({required this.icon, required this.label, required this.color});
+  NavItem({required this.icon, required this.label, required this.color, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: color),
-        SizedBox(height: 4),
-        Text(label, style: TextStyle(color: color, fontSize: 12)),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color),
+          SizedBox(height: 4),
+          Text(label, style: TextStyle(color: color, fontSize: 12)),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/pages_tutorial/navigation.dart';
+import 'package:myapp/pages/pages_tutorial/routes.dart';
 
 class HomePageAyah extends StatelessWidget {
   const HomePageAyah({super.key});
@@ -261,24 +263,25 @@ class HomePageAyah extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 20,),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.orange
-                                ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/profile');
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              Icon(
-                                Icons.send,
-                                size: 25,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
+                              padding: EdgeInsets.all(0),
+                              backgroundColor: Colors.orange,
+                              minimumSize: Size(50, 50), 
+                              maximumSize: Size(50, 50), 
+                            ),
+                            child: Icon(
+                              Icons.send,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                          )
                         ],
                       ),
                     ],
@@ -291,6 +294,7 @@ class HomePageAyah extends StatelessWidget {
         
       ),
       bottomNavigationBar: BottomNavBar(),
+      
     );
   }
 
@@ -325,11 +329,21 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            NavItem(icon: Icons.home, label: 'Home', color: Colors.white),
-            NavItem(icon: Icons.article, label: 'Berita', color: Colors.orange),
-            NavItem(icon: Icons.book, label: 'Buku', color: Colors.white),
-            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white),
-            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white),
+            NavItem(icon: Icons.home, label: 'Home', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/home');
+            }),
+            NavItem(icon: Icons.article, label: 'Berita', color: Colors.orange, onTap: () {
+              Navigator.of(context).pushNamed('/berita');
+            }),
+            NavItem(icon: Icons.book, label: 'Buku', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/buku');
+            }),
+            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/forum');
+            }),
+            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/profile');
+            }),
           ],
         ),
       ),
@@ -341,18 +355,22 @@ class NavItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
+  final VoidCallback onTap;
 
-  NavItem({required this.icon, required this.label, required this.color});
+  NavItem({required this.icon, required this.label, required this.color, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: color),
-        SizedBox(height: 4),
-        Text(label, style: TextStyle(color: color, fontSize: 12)),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color),
+          SizedBox(height: 4),
+          Text(label, style: TextStyle(color: color, fontSize: 12)),
+        ],
+      ),
     );
   }
 }

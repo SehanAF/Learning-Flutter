@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class HomeBerita extends StatelessWidget {
-  const HomeBerita({super.key});
+class HomeBeritaPage extends StatelessWidget {
+  const HomeBeritaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -221,11 +221,21 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            NavItem(icon: Icons.home, label: 'Home', color: Colors.white),
-            NavItem(icon: Icons.article, label: 'Berita', color: Colors.orange),
-            NavItem(icon: Icons.book, label: 'Buku', color: Colors.white),
-            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white),
-            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white),
+            NavItem(icon: Icons.home, label: 'Home', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/home');
+            }),
+            NavItem(icon: Icons.article, label: 'Berita', color: Colors.orange, onTap: () {
+              Navigator.of(context).pushNamed('/berita');
+            }),
+            NavItem(icon: Icons.book, label: 'Buku', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/buku');
+            }),
+            NavItem(icon: Icons.forum, label: 'Forum', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/forum');
+            }),
+            NavItem(icon: Icons.person, label: 'Profile', color: Colors.white, onTap: () {
+              Navigator.of(context).pushNamed('/profile');
+            }),
           ],
         ),
       ),
@@ -237,18 +247,22 @@ class NavItem extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
+  final VoidCallback onTap;
 
-  NavItem({required this.icon, required this.label, required this.color});
+  NavItem({required this.icon, required this.label, required this.color, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: color),
-        SizedBox(height: 4),
-        Text(label, style: TextStyle(color: color, fontSize: 12)),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color),
+          SizedBox(height: 4),
+          Text(label, style: TextStyle(color: color, fontSize: 12)),
+        ],
+      ),
     );
   }
 }
