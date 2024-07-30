@@ -19,6 +19,7 @@ import 'package:myapp/pages/latihan/Verifikasi,%20Home%20&%20Pengumuman/home_pag
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
 import 'package:myapp/pages/pages_tutorial/model_blueprint.dart';
 import 'package:myapp/pages/pages_tutorial/switch_button.dart';
+import 'package:myapp/pages/pages_tutorial/theme.dart';
 import 'package:myapp/pages/profile_page.dart';
 
 
@@ -33,8 +34,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "Poppins"),
-      home: ModelBlueprint(),
+      theme: ThemeData(
+        // brightness: Brightness.dark,
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
+        // visualDensity: VisualDensity.comfortable,
+        // visualDensity: VisualDensity.compact,
+        // visualDensity: VisualDensity.standard,
+        // primarySwatch: Colors.orange,
+        primaryColor: Colors.amber,
+        
+        
+      ),
+      home: ThemeExplore(),
       //initialRoute: "/onboarding",
       routes: {
         // onboarding
