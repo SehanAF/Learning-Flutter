@@ -2,10 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/pages/latihan/Login%20&%20Register/login_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
+  static const nameRoute = "/onboarding";
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,24 +67,18 @@ class OnboardingPage extends StatelessWidget {
                 "Kroskapet diav, sedan fos. Du kan vara drabbad.\n"
                 "Essa paseledes i kuvn i krongar.\n",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             ),
-            
             FloatingActionButton(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50)
-              ),
+                  borderRadius: BorderRadius.circular(50)),
               onPressed: () {
-                Navigator.pushNamed(context, '/loginpage');
+                Navigator.pushNamed(context, LoginPage.nameRoute);
               },
               child: Icon(Icons.arrow_forward, color: Colors.white),
               backgroundColor: Colors.black,
             ),
-            
           ],
         ),
       ),

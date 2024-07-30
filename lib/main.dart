@@ -10,11 +10,16 @@ import 'package:myapp/pages/latihan/Pinjam%20Buku/home_book.dart';
 import 'package:myapp/pages/latihan/Pinjam%20Buku/list_book.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/edit_password.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/edit_profile.dart';
+import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/faq.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/home_berita.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/home_profile.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/ranking.dart';
+import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/test0.dart';
 import 'package:myapp/pages/latihan/Verifikasi,%20Home%20&%20Pengumuman/home_page.dart';
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
+import 'package:myapp/pages/pages_tutorial/model_blueprint.dart';
+import 'package:myapp/pages/pages_tutorial/switch_button.dart';
+import 'package:myapp/pages/profile_page.dart';
 
 
 void main() {
@@ -29,21 +34,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home: RankingPage(),
+      home: ModelBlueprint(),
       //initialRoute: "/onboarding",
       routes: {
         // onboarding
-        "/onboarding": (context) => OnboardingPage(),
+        OnboardingPage.nameRoute: (context) => OnboardingPage(),
 
         // section login
-        "/loginpage": (context) => LoginPage(),
-        "/register": (context) => RegisterPage(),
+        LoginPage.nameRoute: (context) => LoginPage(),
+        RegisterPage.nameRoute: (context) => RegisterPage(),
 
-        '/homepage': (context) => HomePageAyah(),
+        HomePageAyah.nameRoute: (context) => HomePageAyah(),
        
         // section profile
-        '/editprofile': (context) => EditProfile(),
-        '/editpassword': (context) => EditPassword(),
+        HomeProfile.nameRoute: (context) => HomeProfile(),
+        EditProfile.nameRoute: (context) => EditProfile(),
+        EditPassword.nameRoute: (context) => EditPassword(),
+        RankingPage.nameRoute: (context) => RankingPage(),
         
         // section bottom navbar
         '/home': (context) => HomePageAyah(),

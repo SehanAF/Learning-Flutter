@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
 
+  static const nameRoute = "/editprofile";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class HomeProfile extends StatelessWidget {
   const HomeProfile({super.key});
 
+  static const nameRoute = "/homeprofile";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +67,9 @@ class HomeProfile extends StatelessWidget {
                           ),
                           SizedBox(width: 2),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/ranking');
+                            },
                             child: Row(
                               children: [
                                 Text(

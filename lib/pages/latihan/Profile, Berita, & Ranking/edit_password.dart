@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class EditPassword extends StatelessWidget {
   const EditPassword({super.key});
 
+  static const nameRoute = "/editpasswordprofile";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

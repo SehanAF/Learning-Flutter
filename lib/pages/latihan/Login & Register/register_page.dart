@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
+  static const nameRoute = "/registerpage";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

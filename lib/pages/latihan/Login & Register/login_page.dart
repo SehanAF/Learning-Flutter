@@ -2,11 +2,14 @@
 
 import "package:flutter/gestures.dart";
 import 'package:flutter/material.dart';
+import "package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/home_profile.dart";
 import "package:myapp/services/recipebook/auth_service.dart";
 import "package:status_alert/status_alert.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key});
+
+  static const nameRoute = "/loginpage";
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -139,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                               password!,
                             );
                             if (result) {
-                              Navigator.pushNamed(context, '/profile');
+                              Navigator.pushNamed(context, HomeProfile.nameRoute);
                             } else {
                               StatusAlert.show(
                                 context,

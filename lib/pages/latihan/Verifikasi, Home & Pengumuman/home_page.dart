@@ -7,6 +7,8 @@ import 'package:myapp/pages/pages_tutorial/routes.dart';
 class HomePageAyah extends StatelessWidget {
   const HomePageAyah({super.key});
 
+  static const nameRoute = "/homepage";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
