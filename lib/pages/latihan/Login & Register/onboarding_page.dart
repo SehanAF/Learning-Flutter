@@ -75,7 +75,9 @@ class OnboardingPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50)
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/loginpage');
+              },
               child: Icon(Icons.arrow_forward, color: Colors.white),
               backgroundColor: Colors.black,
             ),

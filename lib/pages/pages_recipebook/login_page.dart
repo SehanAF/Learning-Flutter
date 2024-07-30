@@ -5,15 +5,15 @@ import "package:myapp/services/recipebook/auth_service.dart";
 import "package:status_alert/status_alert.dart";
 
 // Definisi class LoginPage yang merupakan StatefulWidget
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginPage2 extends StatefulWidget {
+  const LoginPage2({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPage2> createState() => _LoginPage2State();
 }
 
 // Definisi state dari LoginPage
-class _LoginPageState extends State<LoginPage> {
+class _LoginPage2State extends State<LoginPage2> {
   // Membuat GlobalKey untuk Form
   GlobalKey<FormState> _loginFormKey = GlobalKey();
 
