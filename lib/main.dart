@@ -15,9 +15,12 @@ import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/home_berita
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/home_profile.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/ranking.dart';
 import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/test0.dart';
+import 'package:myapp/pages/latihan/Story%20kegiatan/galery_kegiatan.dart';
 import 'package:myapp/pages/latihan/Verifikasi,%20Home%20&%20Pengumuman/home_page.dart';
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
+import 'package:myapp/pages/pages_tutorial/30_flexible_and_expanded.dart';
 import 'package:myapp/pages/pages_tutorial/model_blueprint.dart';
+import 'package:myapp/pages/pages_tutorial/mediaquery.dart';
 import 'package:myapp/pages/pages_tutorial/switch_button.dart';
 import 'package:myapp/pages/pages_tutorial/theme.dart';
 import 'package:myapp/pages/profile_page.dart';
@@ -41,11 +44,11 @@ class MyApp extends StatelessWidget {
         // visualDensity: VisualDensity.compact,
         // visualDensity: VisualDensity.standard,
         // primarySwatch: Colors.orange,
-        primaryColor: Colors.amber,
+        // primaryColor: Colors.amber,
         
         
       ),
-      home: ThemeExplore(),
+      home: FlexibleAndExpanded(),
       //initialRoute: "/onboarding",
       routes: {
         // onboarding
