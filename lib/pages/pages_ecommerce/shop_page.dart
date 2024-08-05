@@ -3,8 +3,8 @@
 import "package:flutter/material.dart";
 // import "package:hive/hive.dart";
 import "package:myapp/components/ecommerce/shoe_tile.dart";
-import "package:myapp/models/ecommerce/cart.dart";
-import "package:myapp/models/ecommerce/shoe.dart";
+import "package:myapp/models/breakfast/ecommerce/cart.dart";
+import "package:myapp/models/breakfast/ecommerce/shoe.dart";
 import "package:provider/provider.dart";
 
 class ShopPage extends StatefulWidget {

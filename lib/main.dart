@@ -1,4 +1,53 @@
-// ignore_for_file: prefer_const_constructors
+// import 'package:flutter/material.dart';
+
+// import './screens/products_overview_screen.dart';
+// import './screens/product_detail_screen.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+  
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'MyShop',
+//       theme: ThemeData(
+//         primarySwatch: Colors.indigo,
+//         colorScheme: ColorScheme.fromSwatch(
+//           primarySwatch: Colors.indigo,
+//         ),
+//         fontFamily: 'Lato',
+//       ),
+//       home: ProductsOverviewScreen(),
+//       routes: {
+//         ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+//       },
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/latihan/Forum%20Diskusi/forum_diskusi.dart';
@@ -18,6 +67,7 @@ import 'package:myapp/pages/latihan/Profile,%20Berita,%20&%20Ranking/test0.dart'
 import 'package:myapp/pages/latihan/Story%20kegiatan/galery_kegiatan.dart';
 import 'package:myapp/pages/latihan/Verifikasi,%20Home%20&%20Pengumuman/home_page.dart';
 import 'package:myapp/pages/pages_recipebook/login_page.dart';
+import 'package:myapp/pages/pages_tutorial/2date_format.dart';
 import 'package:myapp/pages/pages_tutorial/30_flexible_and_expanded.dart';
 import 'package:myapp/pages/pages_tutorial/32_layout_builder.dart';
 import 'package:myapp/pages/pages_tutorial/33_cupertino_ios.dart';
@@ -28,6 +78,7 @@ import 'package:myapp/pages/pages_tutorial/mediaquery.dart';
 import 'package:myapp/pages/pages_tutorial/switch_button.dart';
 import 'package:myapp/pages/pages_tutorial/theme.dart';
 import 'package:myapp/pages/profile_page.dart';
+import 'package:myapp/screens/shopepay_)project/home_screen_shopepay.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,17 +91,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          // brightness: Brightness.dark,
-          // visualDensity: VisualDensity.adaptivePlatformDensity,
-          // visualDensity: VisualDensity.comfortable,
-          // visualDensity: VisualDensity.compact,
-          // visualDensity: VisualDensity.standard,
-          // primarySwatch: Colors.orange,
-          // primaryColor: Colors.amber,
+      // theme: ThemeData(
+      //     // brightness: Brightness.dark,
+      //     // visualDensity: VisualDensity.adaptivePlatformDensity,
+      //     // visualDensity: VisualDensity.comfortable,
+      //     // visualDensity: VisualDensity.compact,
+      //     // visualDensity: VisualDensity.standard,
+      //     // primarySwatch: Colors.orange,
+      //     // primaryColor: Colors.amber,
 
-          ),
-      home: DatePickerPage(),
+      //     ),
+      home: HomeScreenShopepay(),
+
+
+
+
       //initialRoute: "/onboarding",
       routes: {
         // onboarding

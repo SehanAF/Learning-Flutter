@@ -37,13 +37,14 @@ dependencies:
   hive_flutter: ^1.1.0
   google_nav_bar: ^5.0.6
   flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.7.0
   cupertino_icons: ^1.0.6
   flutter_slidable: ^3.0.0
   dio: ^5.5.0+1
   status_alert: ^1.0.1
   faker: ^2.1.0
   intl: ^0.19.0
-  provider: 
+  provider: ^6.1.2 
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +98,14 @@ flutter:
           weight: 500
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 600
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+    - family: Anton
+      fonts:
+        - asset: assets/fonts/Anton-Regular.ttf
           
 
   #
