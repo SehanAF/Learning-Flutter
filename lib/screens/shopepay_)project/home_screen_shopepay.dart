@@ -6,7 +6,7 @@ import 'package:myapp/widgets/shopepay_project/balance_widget.dart';
 import 'package:myapp/widgets/shopepay_project/information_widget.dart';
 import 'package:myapp/widgets/shopepay_project/notification_icon.dart';
 import 'package:myapp/widgets/shopepay_project/other_payment_app.dart';
-import 'package:myapp/widgets/shopepay_project/shopeepay_header.dart';
+import 'package:myapp/widgets/shopepay_project/shopeepay_headers.dart';
 import 'package:myapp/widgets/shopepay_project/transaction_actions.dart';
 
 class HomeScreenShopepay extends StatelessWidget {
@@ -26,27 +26,28 @@ class HomeScreenShopepay extends StatelessWidget {
                   color: Color.fromARGB(255, 240, 86, 25),
                   borderRadius: BorderRadius.circular(15)),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(            
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(height: 70),
-                        ShopeePayHeader(),
-                        Spacer(),
-                        BalanceWidget(),
-                        SizedBox(width: 10),
-                        NotificationIcon(),
-                      ],
-                    ),                 
-                    BalanceInfo()
-                  ],
-                )
-              ),
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(height: 70),
+                          ShopeePayHeader(),
+                          Spacer(),
+                          BalanceWidget(),
+                          SizedBox(width: 10),
+                          NotificationIcon(),
+                        ],
+                      ),
+                      BalanceInfo()
+                    ],
+                  )),
             ),
             TransactionActions(),
             OtherPaymentApp(),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             InformationWidget()
           ],
         ),

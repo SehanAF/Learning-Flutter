@@ -79,6 +79,7 @@ import 'package:myapp/pages/pages_tutorial/switch_button.dart';
 import 'package:myapp/pages/pages_tutorial/theme.dart';
 import 'package:myapp/pages/profile_page.dart';
 import 'package:myapp/screens/shopepay_)project/home_screen_shopepay.dart';
+import 'package:myapp/screens/shopepay_)project/spaylater_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -101,7 +102,7 @@ class MyApp extends StatelessWidget {
       //     // primaryColor: Colors.amber,
 
       //     ),
-      home: HomeScreenShopepay(),
+      home: SPaylaterScreen(),
 
 
 

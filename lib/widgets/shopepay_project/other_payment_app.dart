@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myapp/models/shopepay_project/PaymentButton.dart';
@@ -38,15 +40,15 @@ class OtherPaymentApp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     OtherPaymenAppModels(
-                        icon: Icons.account_balance_wallet,
+                        icon: Icons.card_giftcard,
                         label: "Cashback\n200RB",
                         onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.qr_code, label: "Pulsa &\n Tagihan", onTap: () {}),
+                        icon: Icons.receipt, label: "Pulsa &\n Tagihan", onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.send, label: "Promo\nSPayLater", onTap: () {}),
+                        icon: Icons.local_offer, label: "Promo\nSPayLater", onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.account_balance,
+                        icon: Icons.phone_android,
                         label: "Pulsa",
                         onTap: () {}),
                   ],
@@ -58,15 +60,15 @@ class OtherPaymentApp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     OtherPaymenAppModels(
-                        icon: Icons.account_balance_wallet,
+                        icon: Icons.fastfood,
                         label: "ShopeeFood",
                         onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.qr_code, label: "Virtual\nAccount", onTap: () {}),
+                        icon: Icons.account_balance_wallet, label: "Virtual\nAccount", onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.send, label: "Google Play", onTap: () {}),
+                        icon: Icons.play_arrow, label: "Google Play", onTap: () {}),
                     OtherPaymenAppModels(
-                        icon: Icons.account_balance,
+                        icon: Icons.more_horiz,
                         label: "Lihat Semua",
                         onTap: () {}),
                   ],
