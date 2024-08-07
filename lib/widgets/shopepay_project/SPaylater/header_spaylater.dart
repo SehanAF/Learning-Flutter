@@ -13,7 +13,7 @@ class HeaderSpaylater extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            print("button ditekan");
+            print("button kembali ditekan");
           },
           child: Icon(
             Icons.arrow_back_ios,
@@ -21,14 +21,50 @@ class HeaderSpaylater extends StatelessWidget {
             size: 25,
           ),
         ),
-        SizedBox(width: 10,),
-        Text("SPaylater", style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),),
+        SizedBox(
+          width: 10,
+        ),
+        Text(
+          "SPaylater",
+          style: TextStyle(
+              color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         Spacer(),
-        Icon(Icons.description, color: Colors.white,size: 20,),
-        SizedBox(width: 20,),
-        Icon(Icons.help_outline, color: Colors.white, size: 30,),
-        SizedBox(width: 20,),
-        Icon(Icons.settings, color: Colors.white,size: 25,),    
+        GestureDetector(
+            onTap: () {
+              print("button survey ditekan");
+            },
+            child: Icon(
+          Icons.description,
+          color: Colors.white,
+          size: 20,
+        )),
+        SizedBox(
+          width: 20,
+        ),
+        GestureDetector(
+          onTap: () {
+            print("button help ditekan");
+          },
+          child: Icon(
+            Icons.help_outline,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        GestureDetector(
+          onTap: () {
+            print("button setting ditekan");
+          },
+          child: Icon(
+            Icons.settings,
+            color: Colors.white,
+            size: 25,
+          ),
+        ),
       ],
     );
   }
