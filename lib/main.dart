@@ -49,6 +49,8 @@
 
 
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/latihan/Forum%20Diskusi/forum_diskusi.dart';
 import 'package:myapp/pages/latihan/Login%20&%20Register/login_page.dart';
@@ -80,6 +82,7 @@ import 'package:myapp/pages/pages_tutorial/theme.dart';
 import 'package:myapp/pages/profile_page.dart';
 import 'package:myapp/screens/shopepay_)project/home_screen_shopepay.dart';
 import 'package:myapp/screens/shopepay_)project/spaylater_screen.dart';
+import 'package:myapp/screens/shopepay_)project/spinjam_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,7 +105,7 @@ class MyApp extends StatelessWidget {
       //     // primaryColor: Colors.amber,
 
       //     ),
-      home: SPaylaterScreen(),
+      home: SpinjamScreen(),
 
 
 
