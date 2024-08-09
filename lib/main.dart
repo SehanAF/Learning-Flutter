@@ -105,13 +105,19 @@ class MyApp extends StatelessWidget {
       //     // primaryColor: Colors.amber,
 
       //     ),
-      home: SpinjamScreen(),
+      home: HomeScreenShopepay(),
 
 
 
 
       //initialRoute: "/onboarding",
       routes: {
+
+        SPaylaterScreen.nameRoute: (context) => SPaylaterScreen(),
+        SpinjamScreen.nameRoute: (context) => SpinjamScreen(),
+
+
+        // ---------------------------------------
         // onboarding
         OnboardingPage.nameRoute: (context) => OnboardingPage(),
 

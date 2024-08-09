@@ -13,7 +13,7 @@ class HeaderSpaylater extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            print("button kembali ditekan");
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.arrow_back_ios,

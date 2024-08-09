@@ -11,6 +11,8 @@ import 'package:myapp/widgets/shopepay_project/SPinjam/information_update.dart';
 class SpinjamScreen extends StatelessWidget {
   const SpinjamScreen({super.key});
 
+  static const nameRoute = "/spinjam";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

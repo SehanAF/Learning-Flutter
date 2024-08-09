@@ -12,6 +12,8 @@ import 'package:myapp/widgets/shopepay_project/transaction_actions.dart';
 class SPaylaterScreen extends StatelessWidget {
   const SPaylaterScreen({super.key});
 
+  static const nameRoute = "/spaylater";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

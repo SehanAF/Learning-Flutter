@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/shopepay_)project/spaylater_screen.dart';
 
 class BalanceInfo extends StatelessWidget {
   @override
@@ -76,22 +77,27 @@ class BalanceInfo extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 5),
-                Row(
-                  children: [
-                    Text(
-                      "Rp547.814",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white.withOpacity(0.5),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SPaylaterScreen.nameRoute);
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        "Rp547.814",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.5),
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      color: Colors.white.withOpacity(0.5),
-                      size: 14,
-                    ),
-                  ],
+                      Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        color: Colors.white.withOpacity(0.5),
+                        size: 14,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

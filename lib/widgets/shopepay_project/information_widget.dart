@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:myapp/screens/shopepay_)project/spinjam_screen.dart';
 
 class InformationWidget extends StatelessWidget {
   const InformationWidget({super.key});
@@ -26,7 +27,7 @@ class InformationWidget extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    print("button ditekan");
+                    Navigator.pushNamed(context, SpinjamScreen.nameRoute);
                   },
                   child: Row(
                     children: [
