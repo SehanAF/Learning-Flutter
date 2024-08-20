@@ -25,6 +25,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:myapp/core/configs/theme/app_theme.dart';
 import 'package:myapp/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:myapp/presentation/splash/pages/splash.dart';
+import 'package:myapp/service_locator.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main(dynamic DefaultFirebaseOptions) async {
@@ -37,6 +38,8 @@ Future<void> main(dynamic DefaultFirebaseOptions) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
