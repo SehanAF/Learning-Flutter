@@ -8,6 +8,9 @@ import 'package:myapp/common/widgets/button/basic_app_button.dart';
 import 'package:myapp/core/configs/assets/app_images.dart';
 import 'package:myapp/core/configs/assets/app_vectors.dart';
 import 'package:myapp/core/configs/theme/app_colors.dart';
+import 'package:myapp/presentation/auth/pages/signin.dart';
+import 'package:myapp/presentation/auth/pages/signup.dart';
+import 'package:myapp/presentation/choose_mode/pages/choose_mode.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -17,7 +20,11 @@ class SignupOrSigninPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const BasicAppbar(),
+          BasicAppbar(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ChooseModePage()));
+            },
+          ),
           Align(
             alignment: Alignment.topRight,
             child: SvgPicture.asset(
@@ -71,7 +78,9 @@ class SignupOrSigninPage extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: BasicAppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignupPage()));
+                          },
                           title: "Register",
                         )
                       ),
@@ -79,7 +88,9 @@ class SignupOrSigninPage extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SigninPage()));
+                          },
                           child: Text(
                             "Sign In",
                             style: TextStyle(

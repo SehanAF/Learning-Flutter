@@ -1,3 +1,20 @@
+/*
+  Spotify Roadmap
+
+  1. Project Struktur. ☑
+  2. Theme of Application. ☑
+  3. Asset & Fonts Folder / Defining in Pubspec. ☑
+  4. Splash Page. ☑
+  5. Get Started Page. ☑
+  6. Choose Mode Page. ☑
+  7. Choose Mode Logic. ☑
+  8. Login Or Signup Page. ☑
+  9. Login Page
+  10. Signup Page
+  11. Firebase Setup
+*/
+
+
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/foundation.dart';

@@ -1,17 +1,27 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:myapp/common/helpers/is_dark_mode.dart';
 
-class BasicAppbar extends StatelessWidget {
-  const BasicAppbar({super.key});
+class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget? title;
+  final VoidCallback? onPressed; // Menambahkan parameter onPressed
+
+  const BasicAppbar({
+    this.title, 
+    this.onPressed, // Menginisialisasi onPressed
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
+      title: title ?? Text(''),
+      centerTitle: true,
       leading: IconButton(
-        onPressed: (){
-          Navigator.pop(context);
+        onPressed: onPressed ?? () { // Menggunakan onPressed yang diteruskan
+          Navigator.pop(context); // Jika onPressed tidak diatur, gunakan Navigator.pop sebagai default
         },
         icon: Container(
           height: 50,
@@ -29,4 +39,7 @@ class BasicAppbar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
