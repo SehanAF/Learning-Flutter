@@ -17,6 +17,7 @@
 
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,12 +27,15 @@ import 'package:myapp/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:myapp/presentation/splash/pages/splash.dart';
 import 'package:path_provider/path_provider.dart';
 
-Future<void> main() async {
+Future<void> main(dynamic DefaultFirebaseOptions) async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
+  );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
 }
