@@ -20,5 +20,5 @@
 // Dalam method call, kita melakukan operasi login menggunakan data yang diberikan oleh params
 // dan mengembalikan hasilnya dalam bentuk String.
 abstract class UseCase<Type,Params> {
-  Future<Type> call(Params params);
+  Future<Type> call({Params params});
 }

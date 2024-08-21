@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:myapp/core/usecase/usecase.dart';
 import 'package:myapp/data/models/auth/create_user_req.dart';
+import 'package:myapp/data/models/auth/sign_user_req.dart';
 import 'package:myapp/domain/repository/auth/auth.dart';
 import 'package:myapp/service_locator.dart';
 
-class SignupUseCase implements UseCase<Either, CreateUserReq> {
+class SigninUseCase implements UseCase<Either, SigninUserReq> {
 
   @override
   /// Fungsi ini digunakan untuk melakukan registrasi user baru
@@ -16,8 +17,8 @@ class SignupUseCase implements UseCase<Either, CreateUserReq> {
   /// dengan nilai string yang berisi pesan berhasil.
   /// Jika proses registrasi gagal maka akan mengembalikan [Left]
   /// dengan nilai string yang berisi pesan error.
-  Future<Either> call({CreateUserReq ? params}) async {
+  Future<Either> call({SigninUserReq ? params}) async {
     // Memanggil metode signup dari AuthRepository dengan parameter params
-    return await s1<AuthRepository>().signup(params!);
+    return await s1<AuthRepository>().signin(params!);
   }
 }

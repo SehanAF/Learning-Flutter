@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /*
   Spotify Roadmap
 
@@ -17,6 +19,7 @@
 
 // ignore_for_file: prefer_const_constructors
 
+import 'package:myapp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +31,7 @@ import 'package:myapp/presentation/splash/pages/splash.dart';
 import 'package:myapp/service_locator.dart';
 import 'package:path_provider/path_provider.dart';
 
-Future<void> main(dynamic DefaultFirebaseOptions) async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -38,7 +41,7 @@ Future<void> main(dynamic DefaultFirebaseOptions) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   await initializeDependencies();
   runApp(const MyApp());
 }

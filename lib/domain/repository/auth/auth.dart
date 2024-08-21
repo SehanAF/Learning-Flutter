@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:myapp/data/models/auth/create_user_req.dart';
+import 'package:myapp/data/models/auth/sign_user_req.dart';
 
 /// Abstract class yang berisi metode-metode untuk authentikasi user.
 ///
@@ -23,5 +24,5 @@ abstract class AuthRepository {
   /// Jika valid, maka user akan di-log-in dan di-redirect ke halaman utama.
   ///
   /// @return [Future<void>] yang akan selesai ketika proses log-in selesai.
-  Future<void> signin();
+  Future<Either> signin(SigninUserReq signinUserReq);
 }

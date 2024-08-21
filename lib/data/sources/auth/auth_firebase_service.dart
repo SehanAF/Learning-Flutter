@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/data/models/auth/create_user_req.dart';
+import 'package:myapp/data/models/auth/sign_user_req.dart';
 
 /// Class abstrak yang merepresentasikan service untuk autentikasi Firebase.
 /// Service ini memiliki 2 method, yaitu:
@@ -17,14 +18,30 @@ abstract class AuthFireBaseService {
   /// Method ini akan mengembalikan nilai [Future<void>].
   /// Nilai [Future] ini akan selesai jika proses login berhasil,
   /// dan akan gagal jika proses login gagal.
-  Future<void> signin();
+  Future<Either> signin(SigninUserReq signUserReq);
 }
 
 class AuthFirebaseServiceImpl extends AuthFireBaseService {
   @override
-  Future<void> signin() {
-    // TODO: implement signin
-    throw UnimplementedError();
+  Future<Either> signin(SigninUserReq signUserReq) async {
+    
+    try{
+
+     await FirebaseAuth.instance.signInWithEmailAndPassword(email: signUserReq.email, password: signUserReq.password);
+
+     return const Right('Signin was Successful');
+
+   }on FirebaseAuthException catch(e) {
+    String message = "";
+
+    if (e.code == 'invalid-email') {
+      message = 'Not user found for that email';
+    } else if (e.code == 'invalid-credential') {
+      message = 'Wrong password provider for that user';
+    }
+
+    return Left(message);
+   }
   }
 
   @override
