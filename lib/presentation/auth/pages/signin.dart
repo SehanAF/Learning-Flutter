@@ -55,10 +55,9 @@ class SigninPage extends StatelessWidget {
                     password: _password.text.toString()
                     )
                   );
-
                   result.fold(
                     (l) {
-                      var snackbar = SnackBar(content: Text(l));
+                      var snackbar = SnackBar(content: Text(l), behavior: SnackBarBehavior.floating,);
                       ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     }, 
                     (r) {

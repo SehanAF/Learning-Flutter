@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/data/models/auth/create_user_req.dart';
@@ -44,12 +45,32 @@ class AuthFirebaseServiceImpl extends AuthFireBaseService {
    }
   }
 
+  /// Method untuk melakukan registrasi user baru dengan menggunakan data [CreateUserReq].
+  /// Method ini akan mengembalikan nilai [Future<Either>].
+  /// Nilai [Future] ini akan selesai jika proses registrasi berhasil,
+  /// dan akan gagal jika proses registrasi gagal.
+  /// Jika proses registrasi berhasil maka akan mengembalikan [Right]
+  /// dengan nilai string yang berisi pesan berhasil.
+  /// Jika proses registrasi gagal maka akan mengembalikan [Left]
+  /// dengan nilai string yang berisi pesan error.
+  ///
+  /// Jika kode error adalah 'weak-password' maka akan mengembalikan pesan
+  /// 'The password provided is too weak.'
+  ///
+  /// Jika kode error adalah 'email-already-in-use' maka akan mengembalikan pesan
+  /// 'The account already exists for that email.'
   @override
   Future<Either> signup(CreateUserReq createUserReq) async{
    try{
 
-     await FirebaseAuth.instance.createUserWithEmailAndPassword(email: createUserReq.email, password: createUserReq.password);
+     var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: createUserReq.email, password: createUserReq.password);
 
+     FirebaseFirestore.instance.collection('Users').add(
+      {
+        'name' : data.user?.displayName,
+        'email' : data.user?.email
+      }
+     );
      return const Right('Signup was Successful');
 
    }on FirebaseAuthException catch(e) {
