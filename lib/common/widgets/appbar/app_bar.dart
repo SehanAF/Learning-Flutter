@@ -4,10 +4,12 @@ import 'package:myapp/common/helpers/is_dark_mode.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
+  final bool hideBack;
   final VoidCallback? onPressed; // Menambahkan parameter onPressed
 
   const BasicAppbar({
     this.title, 
+    this.hideBack = false, 
     this.onPressed, // Menginisialisasi onPressed
     super.key,
   });
@@ -19,7 +21,7 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       title: title ?? Text(''),
       centerTitle: true,
-      leading: IconButton(
+      leading: hideBack ? null : IconButton(
         onPressed: onPressed ?? () { // Menggunakan onPressed yang diteruskan
           Navigator.pop(context); // Jika onPressed tidak diatur, gunakan Navigator.pop sebagai default
         },

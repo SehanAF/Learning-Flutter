@@ -4,4 +4,6 @@ class AppImages {
   static const String introBG = "${basePath}intro_bg.png";
   static const String chooseModeBG = "${basePath}choose_mode_bg.png";
   static const String imageBillie = "${basePath}billie_ellies.png";
+  static const String imageHomeBillie = "${basePath}home_billie_top.png";
+
 }

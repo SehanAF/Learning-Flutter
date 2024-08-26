@@ -12,7 +12,7 @@ import 'package:myapp/data/models/auth/create_user_req.dart';
 import 'package:myapp/domain/repository/usecases/auth/signup.dart';
 import 'package:myapp/presentation/auth/pages/signin.dart';
 import 'package:myapp/presentation/auth/pages/signup_or_signin.dart';
-import 'package:myapp/presentation/root/pages/root.dart';
+import 'package:myapp/presentation/home/pages/home.dart';
 import 'package:myapp/service_locator.dart';
 
 class SignupPage extends StatelessWidget {
@@ -69,7 +69,7 @@ class SignupPage extends StatelessWidget {
                     (r) {
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => const RootPage()),
+                        MaterialPageRoute(builder: (context) => const HomePage()),
                         (route) => false
                       );
                     },

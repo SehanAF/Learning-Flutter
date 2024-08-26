@@ -11,4 +11,7 @@ class AppVectors {
   static const String bottomGoogle = "$basePath/bottom_google$format";
   static const String bottomAppleBlack = "$basePath/bottom_apple$format";
   static const String bottomAppleWhite = "$basePath/bottom_apple_white$format";
+  static const String HomeTopCard = "$basePath/Frame$format";
+  static const String HomeTop = "$basePath/FrameNoText$format";
+  static const String HomeTopReal = "$basePath/FrameReal$format";
 }
