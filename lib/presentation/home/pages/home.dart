@@ -106,7 +106,7 @@ Widget _tabs() {
         fontSize: 16, // Ukuran teks lebih besar
       ),
       unselectedLabelStyle: TextStyle(
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 14, // Ukuran teks lebih kecil untuk yang tidak dipilih
       ),
       tabs: const [
