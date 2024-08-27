@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,13 +37,13 @@ class NewsSongs extends StatelessWidget {
   Widget _songs(List<SongEntity> songs) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
-
       itemCount: songs.length,
-
       separatorBuilder: (context, index) => const SizedBox(width: 14),
-
-      /// The builder for each item in the list
       itemBuilder: (context, index) {
+        final imageUrl =
+            AppURLs.getSongImageURL(songs[index].artist, songs[index].title);
+        print('URL gambar ke-$index: $imageUrl'); // Debugging
+
         return SizedBox(
           width: 160,
           child: Column(
@@ -53,12 +53,7 @@ class NewsSongs extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
-                      image: NetworkImage(AppURLs.firestorage +
-                          songs[index].artist +
-                          " - " +
-                          songs[index].title +
-                          ".jpg" +
-                          AppURLs.mediaAlt),
+                      image: NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
