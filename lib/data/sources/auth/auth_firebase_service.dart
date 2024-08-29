@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,25 +26,27 @@ abstract class AuthFireBaseService {
 
 class AuthFirebaseServiceImpl extends AuthFireBaseService {
   @override
-  Future<Either> signin(SigninUserReq signUserReq) async {
-    
-    try{
+  Future<Either<String, String>> signin(SigninUserReq signUserReq) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: signUserReq.email, password: signUserReq.password);
 
-     await FirebaseAuth.instance.signInWithEmailAndPassword(email: signUserReq.email, password: signUserReq.password);
+      return const Right('Signin was Successful');
+    } on FirebaseAuthException catch (e) {
+      String message = "";
 
-     return const Right('Signin was Successful');
+      if (signUserReq.email.isEmpty) {
+        message = 'Email cannot be empty';
+      } else if (signUserReq.password.isEmpty) {
+        message = 'Password cannot be empty';
+      } else if (e.code == 'invalid-email') {
+        message = 'Not user found for that email';
+      } else if (e.code == 'invalid-credential') {
+        message = 'Wrong password provider for that user';
+      }
 
-   }on FirebaseAuthException catch(e) {
-    String message = "";
-
-    if (e.code == 'invalid-email') {
-      message = 'Not user found for that email';
-    } else if (e.code == 'invalid-credential') {
-      message = 'Wrong password provider for that user';
+      return Left(message);
     }
-
-    return Left(message);
-   }
   }
 
   /// Method untuk melakukan registrasi user baru dengan menggunakan data [CreateUserReq].
@@ -60,30 +64,43 @@ class AuthFirebaseServiceImpl extends AuthFireBaseService {
   /// Jika kode error adalah 'email-already-in-use' maka akan mengembalikan pesan
   /// 'The account already exists for that email.'
   @override
-  Future<Either> signup(CreateUserReq createUserReq) async{
-   try{
-
-     var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: createUserReq.email, password: createUserReq.password);
-
-     FirebaseFirestore.instance.collection('Users').add(
-      {
-        'name' : createUserReq.fullname,
-        'email' : data.user?.email
+  Future<Either<String, String>> signup(CreateUserReq createUserReq) async {
+    try {
+      // Cek apakah field email, password, atau fullname kosong
+      if (createUserReq.fullname.isEmpty) {
+        return Left('Your name cannot be empty');
+      } else if (createUserReq.email.isEmpty) {
+        return Left('Email cannot be empty');
+      } else if (createUserReq.password.isEmpty) {
+        return Left('Password cannot be empty');
       }
-     );
-     return const Right('Signup was Successful');
 
-   }on FirebaseAuthException catch(e) {
-    String message = "";
+      var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: createUserReq.email, password: createUserReq.password);
 
-    if (e.code == 'weak-password') {
-      message = 'The password provided is too weak.';
-    } else if (e.code == 'email-already-in-use') {
-      message = 'The account already exists for that email.';
+      FirebaseFirestore.instance
+          .collection('Users')
+          .add({'name': createUserReq.fullname, 'email': data.user?.email});
+
+      return const Right('Signup was Successful');
+    } on FirebaseAuthException catch (e) {
+      String message = "";
+
+      // Penanganan error FirebaseAuthExceptionr
+      if (e.code == 'weak-password') {
+        message = 'The password you entered is too weak';
+      } else if (e.code == 'email-already-in-use') {
+        message = 'An account with that email already exists';
+      } else if (e.code == 'invalid-email') {
+        message = 'The email format you entered is invalid';
+      } else if (e.code == 'operation-not-allowed') {
+        message = 'Registration with email and password is not permitted';
+      }
+
+      return Left(message);
+    } catch (e) {
+      // Penanganan error umum
+      return Left('Terjadi kesalahan. Silakan coba lagi.');
     }
-
-    return Left(message);
-   }
   }
-  
 }

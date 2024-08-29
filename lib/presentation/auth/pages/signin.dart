@@ -24,71 +24,79 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppbar(
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          height: 40,
-          width: 40,
+        appBar: BasicAppbar(
+          title: SvgPicture.asset(
+            AppVectors.logo,
+            height: 40,
+            width: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SignupOrSigninPage()));
+          },
         ),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignupOrSigninPage()));
-        },
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _signinText(),
-              SizedBox(height: 15),
-              _supportText(context),
-              SizedBox(height: 50),
-              _emailField(context),
-              SizedBox(height: 15),
-              _passwordField(context),
-              SizedBox(height: 35),
-              BasicAppButton(onPressed: () async{
-                var result = await s1<SigninUseCase>().call(
-                    params: SigninUserReq(
-                    email: _email.text.toString(),
-                    password: _password.text.toString()
-                    )
-                  );
-                  result.fold(
-                    (l) {
-                      var snackbar = SnackBar(content: Text(l), behavior: SnackBarBehavior.floating,);
-                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                    }, 
-                    (r) {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
-                        (route) => false
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _signinText(),
+                SizedBox(height: 15),
+                _supportText(context),
+                SizedBox(height: 50),
+                _emailField(context),
+                SizedBox(height: 15),
+                _passwordField(context),
+                SizedBox(height: 35),
+                BasicAppButton(
+                    onPressed: () async {
+                      var result = await s1<SigninUseCase>().call(
+                          params: SigninUserReq(
+                              email: _email.text.toString(),
+                              password: _password.text.toString()));
+                      result.fold(
+                        (l) {
+                          var snackbar = SnackBar(
+                            content: Text(l),
+                            behavior: SnackBarBehavior.floating,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                        },
+                        (r) {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                              (route) => false);
+                        },
                       );
                     },
-                  );
-              }, title: "Sign In"),
-              SizedBox(height: 25),
-              _orDivider(context),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildSocialIcon(AppVectors.bottomGoogle),
-                  SizedBox(width: 15,),
-                  _buildSocialIcon(context.isDarkMode ? AppVectors.bottomAppleWhite : AppVectors.bottomAppleBlack),
-                ],
-              ),
-              SizedBox(height: 35),
-              _haveAccount(context), 
-              SizedBox(height: 40),
-            ],
+                    title: "Sign In"),
+                SizedBox(height: 25),
+                _orDivider(context),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildSocialIcon(AppVectors.bottomGoogle),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    _buildSocialIcon(context.isDarkMode
+                        ? AppVectors.bottomAppleWhite
+                        : AppVectors.bottomAppleBlack),
+                  ],
+                ),
+                SizedBox(height: 35),
+                _haveAccount(context),
+                SizedBox(height: 40),
+              ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
+
   Widget _signinText() {
     return Text(
       'Sign In',
@@ -107,7 +115,8 @@ class SigninPage extends StatelessWidget {
           children: <TextSpan>[
             TextSpan(
               text: 'If You Need Any Support ',
-              style: TextStyle(color: context.isDarkMode ? Colors.white : Colors.black),
+              style: TextStyle(
+                  color: context.isDarkMode ? Colors.white : Colors.black),
             ),
             TextSpan(
               text: 'Click Here',
@@ -115,13 +124,30 @@ class SigninPage extends StatelessWidget {
                 color: AppColors.primary,
                 fontWeight: FontWeight.bold,
               ),
-              recognizer: TapGestureRecognizer()..onTap = () {
-                print("tombol support ditekan");
-              },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print("tombol support ditekan");
+                },
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _emailFromField(BuildContext context) {
+    return TextFormField(
+      controller: _email,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Username is required"; // Validasi jika username kosong
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: 'Email',
+        hintText: 'Enter your email',
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
     );
   }
 
@@ -131,22 +157,19 @@ class SigninPage extends StatelessWidget {
       decoration: InputDecoration(
         labelText: 'Email',
         hintText: 'Enter your email',
-      ).applyDefaults(
-        Theme.of(context).inputDecorationTheme
-      ),
-    );  
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
   }
 
   Widget _passwordField(BuildContext context) {
     return TextField(
       controller: _password,
+      obscureText: true,
       decoration: InputDecoration(
         labelText: 'Password',
         hintText: 'Enter your password',
-      ).applyDefaults(
-        Theme.of(context).inputDecorationTheme
-      ),
-    );  
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
   }
 
   Widget _orDivider(BuildContext context) {
@@ -155,20 +178,21 @@ class SigninPage extends StatelessWidget {
         Expanded(
           child: Divider(
             color: context.isDarkMode ? Colors.white : Colors.black,
-            thickness: 1, 
+            thickness: 1,
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
             'Or',
-            style: TextStyle(color: context.isDarkMode ? Colors.white : Colors.black), 
+            style: TextStyle(
+                color: context.isDarkMode ? Colors.white : Colors.black),
           ),
         ),
         Expanded(
           child: Divider(
             color: context.isDarkMode ? Colors.white : Colors.black,
-            thickness: 1, 
+            thickness: 1,
           ),
         ),
       ],
@@ -210,7 +234,8 @@ class SigninPage extends StatelessWidget {
           children: <TextSpan>[
             TextSpan(
               text: 'Not A Member ? ',
-              style: TextStyle(color: context.isDarkMode ? Colors.white : Colors.black),
+              style: TextStyle(
+                  color: context.isDarkMode ? Colors.white : Colors.black),
             ),
             TextSpan(
               text: 'Register Now',
@@ -218,9 +243,11 @@ class SigninPage extends StatelessWidget {
                 color: Color(0xff288CE9),
                 fontWeight: FontWeight.bold,
               ),
-              recognizer: TapGestureRecognizer()..onTap = () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignupPage()));
-              },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SignupPage()));
+                },
             ),
           ],
         ),
