@@ -19,6 +19,20 @@
 // [Params] diatur menjadi LoginParams karena operasi login membutuhkan data seperti email dan password.
 // Dalam method call, kita melakukan operasi login menggunakan data yang diberikan oleh params
 // dan mengembalikan hasilnya dalam bentuk String.
-abstract class UseCase<Type,Params> {
+
+/// Abstrak class yang digunakan sebagai interface untuk operasi yang
+/// memiliki parameter dan mengembalikan nilai.
+///
+/// [Type] adalah tipe data yang diharapkan sebagai hasil dari operasi
+/// yang dijalankan. [Params] adalah parameter yang dibutuhkan untuk
+/// menjalankan operasi tersebut.
+///
+/// Setiap class yang mengimplementasikan [UseCase] harus meng-override
+/// method [call] yang menerima parameter [Params] dan mengembalikan nilai
+/// dengan tipe [Type].
+abstract class UseCase<Type, Params> {
+  /// Method yang harus di-override oleh class yang mengimplementasikan
+  /// [UseCase]. Method ini menerima parameter [Params] dan mengembalikan
+  /// nilai dengan tipe [Type].
   Future<Type> call({Params params});
 }
